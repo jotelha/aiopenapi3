@@ -2,7 +2,7 @@ openapi.yaml
 openapi.json
 *.swp
 *.pyc
-openapi3.egg-info/*
+aiopenapi3.egg-info/*
 build/*
 dist/*
 .idea
