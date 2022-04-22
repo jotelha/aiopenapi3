@@ -31,7 +31,7 @@ class RequestBase:
         return self.request(*args, **kwargs)
 
     def _factory_args(self):
-        return {"auth": self.req.auth, "headers": {"user-agent": f"aiopenapi3/{__version__}"}}
+        return {"headers": {"user-agent": f"aiopenapi3/{__version__}", **self.req.headers}}
 
     def request(self, data=None, parameters=None):
         """

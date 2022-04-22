@@ -78,7 +78,7 @@ class Request(RequestBase):
             self.req.auth = httpx.DigestAuth(*value)
 
         if ss.type == "http" and ss.scheme_ == "bearer":
-            header = ss.bearerFormat or "Bearer {}"
+            header = "Bearer {}"
             self.req.headers["Authorization"] = header.format(value)
 
         if ss.type == "mutualTLS":
