@@ -220,7 +220,8 @@ class OpenAPI:
                         op = getattr(obj, m)
                         _validate_parameters(op, path)
                         if op.operationId is None:
-                            continue
+                            formatted_path = path.replace("/", "_")
+                            op.operationId = '_'.join([formatted_path, m])
                         formatted_operation_id = op.operationId.replace(" ", "_")
                         test_operation(formatted_operation_id)
                         for r, response in op.responses.items():
@@ -240,7 +241,8 @@ class OpenAPI:
                         op = getattr(obj, m)
                         _validate_parameters(op, path)
                         if op.operationId is None:
-                            continue
+                            formatted_path = path.replace("/", "_")
+                            op.operationId = '_'.join([formatted_path, m])
                         formatted_operation_id = op.operationId.replace(" ", "_")
                         test_operation(formatted_operation_id)
                         for r, response in op.responses.items():
